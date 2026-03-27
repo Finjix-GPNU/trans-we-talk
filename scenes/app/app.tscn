@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://b3nain8c5vp7"]
+
+[ext_resource type="PackedScene" uid="uid://cj2wsxkmv5gij" path="res://scenes/main_bar/main_bar.tscn" id="1_rqqxv"]
+[ext_resource type="PackedScene" uid="uid://bnnqh2240swbg" path="res://scenes/talk/talk.tscn" id="2_38mom"]
+
+[node name="App" type="Control" unique_id=1808956973]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="." unique_id=279451985]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.96862745, 0.9764706, 0.9843137, 1)
+
+[node name="MainBar" parent="." unique_id=1817726659 instance=ExtResource("1_rqqxv")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -500.0
+offset_top = -240.0
+offset_right = 500.0
+offset_bottom = -72.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Talk" parent="." unique_id=799218826 instance=ExtResource("2_38mom")]
+layout_mode = 1

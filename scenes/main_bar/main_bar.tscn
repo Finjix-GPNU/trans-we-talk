@@ -1,0 +1,108 @@
+[gd_scene format=3 uid="uid://cj2wsxkmv5gij"]
+
+[ext_resource type="Texture2D" uid="uid://chb7b7lbnkbha" path="res://aseets/camera_ico.svg" id="1_fappf"]
+[ext_resource type="Script" uid="uid://btscn0s7ueudq" path="res://scenes/main_bar/main_bar.gd" id="1_m18k8"]
+[ext_resource type="Texture2D" uid="uid://b7ex6qtjqucoo" path="res://aseets/mode_ico.svg" id="2_1oaf7"]
+[ext_resource type="Texture2D" uid="uid://d011saopmcl2i" path="res://aseets/keyboard_ico.svg" id="2_sr05b"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3m74a"]
+bg_color = Color(1, 1, 1, 0.8)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+shadow_color = Color(0, 0, 0, 0.0627451)
+shadow_size = 16
+shadow_offset = Vector2(0, 10)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sr05b"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m18k8"]
+
+[node name="MainBar" type="PanelContainer" unique_id=1817726659]
+custom_minimum_size = Vector2(1000, 168)
+theme_override_styles/panel = SubResource("StyleBoxFlat_3m74a")
+script = ExtResource("1_m18k8")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1762963184]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="EditContainer" type="MarginContainer" parent="VBoxContainer" unique_id=653242769]
+visible = false
+custom_minimum_size = Vector2(0, 84)
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="TextEdit" type="TextEdit" parent="VBoxContainer/EditContainer" unique_id=2143862688]
+layout_mode = 2
+theme_override_colors/caret_color = Color(0.09803922, 0.10980392, 0.11764706, 1)
+theme_override_colors/font_color = Color(0.09803922, 0.10980392, 0.11764706, 1)
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxEmpty_sr05b")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_m18k8")
+placeholder_text = "please enter the text"
+wrap_mode = 1
+scroll_smooth = true
+scroll_v_scroll_speed = 20.0
+scroll_fit_content_height = true
+caret_blink = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=143779238]
+custom_minimum_size = Vector2(0, 168)
+layout_mode = 2
+
+[node name="SpaceLeft" type="Control" parent="VBoxContainer/HBoxContainer" unique_id=858494716]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Camera" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=91247485]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+icon = ExtResource("1_fappf")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Record" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=542298316]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.09803922, 0.10980392, 0.11764706, 1)
+theme_override_colors/font_focus_color = Color(0.09803922, 0.10980392, 0.11764706, 1)
+theme_override_colors/font_pressed_color = Color(0.09803922, 0.10980392, 0.11764706, 1)
+theme_override_colors/font_hover_color = Color(0.09803922, 0.10980392, 0.11764706, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.09803922, 0.10980392, 0.11764706, 1)
+theme_override_font_sizes/font_size = 40
+text = "                       Press To Talk"
+flat = true
+alignment = 0
+
+[node name="SwitchInput" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=1480348779]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+icon = ExtResource("2_sr05b")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="SpaceMid" type="Control" parent="VBoxContainer/HBoxContainer" unique_id=137294735]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="SwitchMode" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=705684239]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+icon = ExtResource("2_1oaf7")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="SpaceRight" type="Control" parent="VBoxContainer/HBoxContainer" unique_id=888980789]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/SwitchInput" to="." method="_on_swicth_input_pressed"]
